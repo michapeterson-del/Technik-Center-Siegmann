@@ -196,8 +196,31 @@ ul.check li::after {
   box-shadow: var(--shadow-lg);
   display: flex; align-items: center; justify-content: center;
   position: relative;
+  overflow: visible;
 }
 .hero-art svg { width: 62%; height: 62%; opacity: .95; }
+.hero-art .photo-fill { border-radius: var(--radius-lg); }
+
+.hero-badge {
+  position: absolute;
+  right: -16px; bottom: -22px;
+  width: 92px; height: 92px;
+  filter: drop-shadow(0 8px 18px rgba(20,36,48,.45));
+}
+@media (max-width: 860px) { .hero-badge { width: 74px; height: 74px; right: 8px; bottom: -16px; } }
+
+/* ---------- Photo fit utilities ---------- */
+.photo-fill { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+.photo-contain { max-width: 84%; max-height: 84%; width: auto; height: auto; object-fit: contain; display: block; }
+
+.logo-showcase {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.logo-showcase img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
 
 @media (max-width: 860px) {
   .hero .container { grid-template-columns: 1fr; }
@@ -251,6 +274,7 @@ section { padding: 72px 0; }
 .media-block svg { width: 46%; height: 46%; opacity: .92; }
 .media-block.light { background: linear-gradient(150deg, #fff, var(--bg-alt)); border: 1px solid var(--border); }
 .media-block.light svg { opacity: .85; }
+.media-block .photo-fill { border-radius: inherit; }
 
 /* ---------- Quote / signature ---------- */
 .owner-note {
@@ -266,7 +290,9 @@ section { padding: 72px 0; }
   width: 52px; height: 52px; border-radius: 50%;
   background: linear-gradient(155deg, var(--amber-400), var(--amber-600));
   color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;
+  overflow: hidden; flex-shrink: 0;
 }
+.owner-note .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .owner-note .who strong { display: block; }
 .owner-note .who span { color: var(--text-muted); font-size: .9rem; }
 
