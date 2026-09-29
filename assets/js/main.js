@@ -12,6 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Google Maps erst nach Klick laden (Zwei-Klick-Lösung, DSGVO)
+  document.querySelectorAll(".map-consent").forEach(function (box) {
+    var btn = box.querySelector(".map-consent-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var iframe = document.createElement("iframe");
+      iframe.title = "Anfahrtsplan Technik-Center Siegmann";
+      iframe.src = box.getAttribute("data-map-src");
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      box.replaceWith(iframe);
+    });
+  });
+
   var days = ["sonntag", "montag", "dienstag", "mittwoch", "donnerstag", "freitag", "samstag"];
   var todayKey = days[new Date().getDay()];
   document.querySelectorAll("[data-day]").forEach(function (row) {

@@ -69,12 +69,12 @@
       <a class="btn btn-primary" style="margin-top:8px;" href="https://www.google.com/maps/search/?api=1&query=Technik-Center+Siegmann+Hauptstra%C3%9Fe+40-42+51709+Marienheide" target="_blank" rel="noopener">Route in Google Maps öffnen</a>
     </div>
     <div class="map-frame">
-      <iframe
-        title="Anfahrtsplan Technik-Center Siegmann"
-        src="https://www.google.com/maps?q=Hauptstra%C3%9Fe+40-42,+51709+Marienheide&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <!-- Google Maps wird erst nach Zustimmung geladen (vorher keine Datenübertragung an Google) -->
+      <div class="map-consent" data-map-src="https://www.google.com/maps?q=Hauptstra%C3%9Fe+40-42,+51709+Marienheide&amp;output=embed">
+        <p><strong>Karte anzeigen?</strong></p>
+        <p>Beim Laden der Karte werden Daten (u.&nbsp;a. Ihre IP-Adresse) an Google übertragen. Mehr dazu in der <a href="datenschutz.html#google-maps">Datenschutzerklärung</a>.</p>
+        <button type="button" class="btn btn-primary map-consent-btn">Karte laden</button>
+      </div>
     </div>
   </div>
 </section>
